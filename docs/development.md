@@ -9,6 +9,9 @@ skills are not runtime dependencies. Changes in those locations are not synchron
 - `skills/statechart/`: upstream CLI, compiler passes, parsers, reports, rendering guide,
   tests, and all captured corpus files.
 - `examples/retry/`: a public teaching model with a broken and corrected retry transition.
+- `skills/duplication-review/`: review guidance, agent metadata, and a Python scan reference.
+- `examples/duplication/` and `tests/duplication.test.mjs`: intentionally repeated teaching
+  cases and executable checks against the separately installed dupehound command.
 
 Runtime code uses Node built-ins. `fast-check` is a test dependency. Rendering tests also
 install Pele 1.9.0, Mermaid 11.16.0, and jsdom 26.1.0 into the user cache. They are not needed
@@ -46,6 +49,18 @@ The [worked example](workflow-example.md) exercises the public launcher with bot
 and corrected contract. Keep generated results in a new scratch directory, outside source.
 Do not regenerate the upstream expected fixtures just to make a failing test pass.
 
+For duplication-review examples, use Node 24, Git, dupehound, and Python 3.12+:
+
+```sh
+DUPLICATION_PYTHON="$PWD/.venv/bin/python" node --test tests/duplication.test.mjs
+```
+
+Create the Python environment with `python3.12 -m venv .venv`, or point `DUPLICATION_PYTHON`
+at an existing suitable interpreter. The tests require no third-party Python or npm packages.
+See the [duplication review guide](duplication-review.md) for the cases, version-specific
+compatibility checks, and their limits. The deliberately copied Python fixtures are retained
+to demonstrate dupehound detection and independent test contracts; do not consolidate them.
+
 Plugin manifests are included for distribution, but host installation needs a separate smoke
 test in each host. Direct CLI tests do not establish plugin discovery or model compliance.
 
@@ -74,3 +89,24 @@ Verified with Node 24.22.1, Java 17, and TLA+ tools release 1.7.4:
   actionable findings. Review was read-only and did not repeat runtime tests.
 
 The source repository and installed skills were left unchanged. No worktrees were created.
+
+## Duplication-review verification, 2026-11-13
+
+- Eight integration checks passed with dupehound 0.1.2, Node 24.22.1, and Python 3.12;
+  none skipped. These include real scan results and both documented `check` limitations.
+- Ruff lint and format checks passed for all four Python fixture files. The whole-repository
+  Python-only scan found the three expected teaching clusters across those files. The
+  fixture copies remain intentionally separate to demonstrate detection and review decisions.
+- The new skill passed the skill frontmatter validator; both Claude manifests validated.
+  Local Markdown links/anchors, source syntax, and diff whitespace were checked.
+- A fresh agent applied the skill to a disposable repository with a staged helper copy and
+  untracked totals/tests. It identified both avoidable copies and retained the independent
+  FIFO/LIFO expectations, using a whole-repository scan. This is one bounded teaching case,
+  not a general guarantee of model decisions.
+- Independent adversarial review found no actionable findings, including in the clarified
+  language-scope guidance. Python-only is an internal default and optional public recipe;
+  adopters can select other supported languages or mixed-language scans.
+
+Other dupehound versions and actual plugin-host discovery were not tested. The existing
+statechart suite was not repeated because its source and runtime dependencies did not change.
+No runtime dupehound wrapper/filter, global hooks, or worktrees were created.

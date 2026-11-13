@@ -1,7 +1,7 @@
 {
   "name": "gstack-public",
   "version": "0.1.0",
-  "description": "Workflow verification and model-checked statecharts.",
+  "description": "Skills for workflow verification, model-checked statecharts, and duplication review.",
   "author": { "name": "jgustave" },
   "repository": "https://github.com/jgustave/gstack-public",
   "license": "MIT",

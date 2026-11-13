@@ -5,7 +5,8 @@ A collection of skills and tools for thoughtful, practical agent-assisted engine
 This is a selective extract from gstack, inspired by
 [Lauren Tan's pstack](https://github.com/cursor/plugins/tree/main/pstack).
 It brings useful capabilities from gstack into a self-contained public collection that you
-can use, learn from, and adapt. Workflow verification and statechart are the first two entries.
+can use, learn from, and adapt. Current entries cover workflow verification, model-checked
+statecharts, and duplication review.
 
 ## Start here
 
@@ -27,9 +28,11 @@ the [statechart setup guide](docs/statechart.md) and try the [worked example](do
 | --- | --- | --- |
 | [workflow-verification](skills/workflow-verification/SKILL.md) | Phase contracts, producer/consumer agreement, lifecycle tests, interruptions, recovery, context limits, and provider boundaries. | [Retry example](docs/workflow-example.md) |
 | [statechart](skills/statechart/SKILL.md) | Check a bounded TLA+ model, draw a Mermaid statechart, and report paths to broken rules. | [Setup and CLI](docs/statechart.md) |
+| [duplication-review](skills/duplication-review/SKILL.md) | Find existing behavior to reuse and assess dupehound findings without forcing unnecessary refactoring. | [Guide and examples](docs/duplication-review.md) |
 
-Statechart is optional. A decisive executable reproduction may be all a workflow needs.
-Neither skill grants permission to change a live system or requires a particular model provider.
+For workflow verification, statechart is optional. A decisive executable reproduction may be
+all a workflow needs. These skills do not grant permission to change a live system or require
+a particular model provider.
 
 ## Install
 
@@ -40,9 +43,9 @@ git clone https://github.com/jgustave/gstack-public.git
 cd gstack-public
 ```
 
-Use your agent's skill installer with `skills/workflow-verification` and `skills/statechart`,
-or copy those complete directories into its supported skill directory. Keep them together:
-workflow-verification links to its sibling statechart. Reading the files explicitly, as in
+Use your agent's skill installer with the desired directories under `skills/`, or copy complete
+skill directories into its supported skill directory. Keep workflow-verification and statechart
+together: workflow-verification links to its sibling statechart. Reading the files explicitly, as in
 the example prompt above, also works without automatic skill discovery.
 
 For Claude Code, the repository includes a marketplace and plugin manifest:

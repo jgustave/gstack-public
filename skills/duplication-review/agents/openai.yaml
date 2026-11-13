@@ -1,0 +1,3 @@
+interface:
+  display_name: "Duplication review"
+  short_description: "Assess duplicate code and reuse existing contracts"

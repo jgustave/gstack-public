@@ -1,12 +1,12 @@
 {
   "name": "gstack-public",
-  "description": "Workflow verification and model-checked statecharts.",
+  "description": "Skills for workflow verification, model-checked statecharts, and duplication review.",
   "owner": { "name": "jgustave" },
   "plugins": [
     {
       "name": "gstack-public",
       "source": "./",
-      "description": "Workflow verification and model-checked statecharts."
+      "description": "Skills for workflow verification, model-checked statecharts, and duplication review."
     }
   ]
 }
