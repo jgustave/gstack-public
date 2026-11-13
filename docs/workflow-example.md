@@ -21,7 +21,7 @@ when its outcome is uncertain.
 
 ## Run the broken model
 
-Complete the [statechart setup](../README.md#statechart-prerequisites), then from the repository root:
+Complete the [statechart setup](statechart.md#prerequisites), then from the repository root:
 
 ```sh
 example_output=$(mktemp -d)
