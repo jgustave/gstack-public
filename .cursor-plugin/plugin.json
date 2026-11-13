@@ -1,0 +1,10 @@
+{
+  "name": "gstack-public",
+  "displayName": "gstack-public",
+  "version": "0.1.0",
+  "description": "Verify workflows across handoffs, retries, interruptions, and recovery; model state transitions with TLA+ and Mermaid.",
+  "author": { "name": "jgustave" },
+  "repository": "https://github.com/jgustave/gstack-public",
+  "license": "MIT",
+  "skills": "./skills/"
+}

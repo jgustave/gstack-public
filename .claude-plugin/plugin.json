@@ -1,0 +1,9 @@
+{
+  "name": "gstack-public",
+  "version": "0.1.0",
+  "description": "Workflow verification and model-checked statecharts.",
+  "author": { "name": "jgustave" },
+  "repository": "https://github.com/jgustave/gstack-public",
+  "license": "MIT",
+  "skills": "./skills/"
+}

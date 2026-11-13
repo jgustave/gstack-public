@@ -1,0 +1,3 @@
+interface:
+  display_name: "Workflow verification"
+  short_description: "Design and verify shared workflow contracts"
